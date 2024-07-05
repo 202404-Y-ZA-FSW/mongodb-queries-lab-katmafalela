@@ -61,7 +61,17 @@ db.restaurants.find({"cuisine":{$ne:"American"}, "grade.score": {$lt:100 },"addr
 
 Note : Do this query without using $and operator. 
 ```
-Paste your solution here
+db.restaurants.find({
+  "cuisine": { $ne: "American" },
+  "grades.score": { $gt: 70 },
+  "address.coord": { $lt: -65.754168 }
+},
+{
+  restaurant_id: 1,
+  name: 1,
+  borough: 1,
+  cuisine: 1
+})
 ```
 
 13. Find the restaurants which do not prepare any cuisine of 'American' and achieved a grade point 'A' and does not belong to the borough Brooklyn. The document must be displayed according to the cuisine in descending order.
